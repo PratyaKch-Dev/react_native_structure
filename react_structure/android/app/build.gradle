@@ -210,6 +210,11 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.32"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.32"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.32"
+
 }
 
 // Run this once to be able to run the application with BUCK

@@ -2,30 +2,30 @@ import React, {Fragment, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {colors, fonts} from '~/templates/v1';
 
-const StartAppView = props => {
+const DetailAppView = props => {
   const {Template, navigate} = props;
-  console.log('herrrrrrrrr :: ', props);
+  console.log('herrrrrrrrr :: ', Template);
 
   return (
-    <Template.TemplateFull
-      title={'หน้าแรก'}
-      useBack={false}
+    <Template.TemplateWithTopbar
+      title={'รายละเอียด'}
+      useBack={true}
       useAndroidBack={true}>
-      <StartAppViewWrapper>
+      <DetailAppViewWrapper>
         <ButtonWrapper
           onPress={() => {
-            navigate.to('DetailAppView');
+            navigate.back();
           }}>
-          <ButtonText>Click</ButtonText>
+          <ButtonText>Click Back</ButtonText>
         </ButtonWrapper>
-      </StartAppViewWrapper>
-    </Template.TemplateFull>
+      </DetailAppViewWrapper>
+    </Template.TemplateWithTopbar>
   );
 };
 
-export default StartAppView;
+export default DetailAppView;
 
-const StartAppViewWrapper = styled.View`
+const DetailAppViewWrapper = styled.View`
   width: 100%;
   height: 100%
   background: ${colors.secondary.red1}

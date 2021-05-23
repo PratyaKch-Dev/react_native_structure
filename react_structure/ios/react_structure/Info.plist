@@ -49,7 +49,29 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Kanit-Regular.ttf</string>
+		<string>Kanit-Bold.ttf</string>
+		<string>Kanit-Light.ttf</string>
+		<string>Kanit-SemiBold.ttf</string>
+		<string>Kanit-Medium.ttf</string>
+		<string>Sarabun-Italic.ttf</string>
+		<string>Sarabun-Bold.ttf</string>
+		<string>Sarabun-Light.ttf</string>
+		<string>Sarabun-Medium.ttf</string>
+		<string>Sarabun-Regular.ttf</string>
+		<string>Sarabun-SemiBold.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>Feather.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	
 </dict>
 </plist>

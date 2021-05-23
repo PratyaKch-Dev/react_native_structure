@@ -26,7 +26,7 @@ const TopBarTitleWrapper = styled.View`
 const TopBarTitleText = styled.Text`
   text-align: center;
   color: ${colors.primary.black};
-  font-family: ${fonts.kanit.regular};
+
   font-weight: 600;
   font-size: 20px;
 `;

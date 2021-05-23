@@ -336,7 +336,6 @@ Navigation.events().registerAppLaunchedListener(async () => {
 const ComponentBackgroundWrapper = styled.View`
   width: 100%;
   height: 100%;
-  background: #a3e4d7;
 `;
 
 export default renderRegisterComponent;
