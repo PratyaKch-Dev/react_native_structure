@@ -15,7 +15,7 @@ import Orientation from 'react-native-orientation-locker';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
 
-import {TemplateWithTopbar, TemplateFull} from '~/templates/v1';
+import {TemplateWithTopbar, TemplateFull, colors} from '~/templates/v1';
 import StartAppView from '~/views/v1/main/StartAppView';
 
 //
@@ -23,6 +23,7 @@ import viewList from '~/configs/router';
 
 const ComponentWrapper = props => {
   const {componentId, Component, componentName, params} = props;
+  console.log('componentIdcomponentId :: ', componentId);
 
   const useMount = func => useEffect(() => func(), []);
 
@@ -202,7 +203,27 @@ const ComponentWrapper = props => {
         backgroundColor={Platform.OS === 'android' ? '#ffffff' : '#ffffff'}
       />
       <SafeAreaProvider>
-        <SafeAreaInsetsContext.Consumer></SafeAreaInsetsContext.Consumer>
+        <SafeAreaInsetsContext.Consumer>
+          {insets => (
+            <ActionSheetProvider>
+              <Fragment>
+                <Fragment>
+                  <Component
+                    {...props}
+                    navigate={navigate}
+                    safeArea={insets}
+                    Template={template}
+                    // Layout={renderLayout}
+                    componentName={componentName}
+                    parentComponentId={componentId}
+                  />
+                </Fragment>
+
+                {/* <Popup ref={popupRef} /> */}
+              </Fragment>
+            </ActionSheetProvider>
+          )}
+        </SafeAreaInsetsContext.Consumer>
       </SafeAreaProvider>
     </ComponentBackgroundWrapper>
   );
@@ -274,29 +295,32 @@ const renderRegisterComponent = () => {
   console.log('thisWorkingggg', Navigation);
   console.log('thisWorkingggg2', AppRegistry);
 
-  AppRegistry.registerComponent('react_structure', () => StartAppView);
+  // AppRegistry.registerComponent('react_structure', () => StartAppView);
   // AppRegistry.registerComponent(appName, () => StartAppView);
 
-  // forEach(viewList, value => {
-  //   console.log('valuevaluevalue :: ', value);
-  //   // Navigation.registerComponent('react_structure', () => StartAppView); //
+  forEach(viewList, value => {
+    console.log('valuevaluevalue :: ', value);
+    // Navigation.registerComponent('react_structure', () => StartAppView); //
 
-  //   Navigation.registerComponent(
-  //     value.name,
-  //     () => props =>
-  //       (
-  //         <Provider store={store}>
-  //           <ComponentWrapper
-  //             {...props}
-  //             Component={value.component}
-  //             componentName={value.name}
-  //             params={value.params}
-  //           />
-  //         </Provider>
-  //       ),
-  //     () => gestureHandlerRootHOC(ComponentWrapper),
-  //   );
-  // });
+    Navigation.registerComponent(
+      value.name,
+      () => props =>
+        (
+          // <Provider store={store}>
+          <Fragment>
+            {/* <StartAppView /> */}
+            <ComponentWrapper
+              {...props}
+              Component={value.component}
+              componentName={value.name}
+              params={value.params}
+            />
+          </Fragment>
+          // </Provider>
+        ),
+      () => gestureHandlerRootHOC(ComponentWrapper),
+    );
+  });
 };
 
 Navigation.events().registerAppLaunchedListener(async () => {
@@ -306,12 +330,13 @@ Navigation.events().registerAppLaunchedListener(async () => {
   // await notifications(store)
   // await quickAction(store)
   // await setLanguage('th')
-  // await startApp();
+  await startApp();
 });
 
 const ComponentBackgroundWrapper = styled.View`
   width: 100%;
   height: 100%;
+  background: #a3e4d7;
 `;
 
 export default renderRegisterComponent;
