@@ -8,18 +8,22 @@ import {Provider, InteractionManager} from 'react-redux';
 import forEach from 'lodash/forEach';
 import {ActionSheetProvider} from '@expo/react-native-action-sheet';
 import styled from 'styled-components/native';
-import {StatusBar, Platform, Text, View, AppRegistry} from 'react-native';
+import {StatusBar, Platform, Text, View} from 'react-native';
 
 import SplashScreen from 'react-native-splash-screen';
 import Orientation from 'react-native-orientation-locker';
 import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
 
-import {TemplateWithTopbar, TemplateFull, colors} from '~/templates/v1';
-import StartAppView from '~/views/v1/main/StartAppView';
+// ---
+import configStore from '~/configs/stores/';
+import configSagas from '~/modules/sagas';
 
-//
+import {TemplateWithTopbar, TemplateFull, colors} from '~/templates/v1';
 import viewList from '~/configs/router';
+
+const {store, runSaga} = configStore();
+runSaga(configSagas);
 
 const ComponentWrapper = props => {
   const {componentId, Component, componentName, params} = props;
@@ -285,29 +289,15 @@ export const startApp = async passProps => {
   });
 };
 
-const App = props => (
-  <View>
-    <Text>App1</Text>
-  </View>
-);
-
 const renderRegisterComponent = () => {
   console.log('thisWorkingggg', Navigation);
-  console.log('thisWorkingggg2', AppRegistry);
-
-  // AppRegistry.registerComponent('react_structure', () => StartAppView);
-  // AppRegistry.registerComponent(appName, () => StartAppView);
 
   forEach(viewList, value => {
-    console.log('valuevaluevalue :: ', value);
-    // Navigation.registerComponent('react_structure', () => StartAppView); //
-
     Navigation.registerComponent(
       value.name,
       () => props =>
         (
-          // <Provider store={store}>
-          <Fragment>
+          <Provider store={store}>
             {/* <StartAppView /> */}
             <ComponentWrapper
               {...props}
@@ -315,8 +305,7 @@ const renderRegisterComponent = () => {
               componentName={value.name}
               params={value.params}
             />
-          </Fragment>
-          // </Provider>
+          </Provider>
         ),
       () => gestureHandlerRootHOC(ComponentWrapper),
     );
@@ -324,7 +313,7 @@ const renderRegisterComponent = () => {
 };
 
 Navigation.events().registerAppLaunchedListener(async () => {
-  // SplashScreen.hide();
+  SplashScreen.hide();
   // await migrateStore(store)
   // await interceptors(store)
   // await notifications(store)
