@@ -9,7 +9,10 @@ import createSelector from '~/utils/automations/createSelector';
 import exampleCoreSelectors from './exampleCoreSelectors';
 import exampleCoreActions from './exampleCoreActions';
 // ---
-const mapStateToProp = createSelector({});
+const mapStateToProp = createSelector({
+  hotelDeals: exampleCoreSelectors.hotelDealsSelector,
+  isLoadingHotelDeal: exampleCoreSelectors.isLoadingHotelDealSelector,
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -20,7 +23,7 @@ const mapDispatchToProps = dispatch =>
   );
 
 const ExampleCoreContainer = props => {
-  const {render, onGetHotelDeal} = props;
+  const {render, onGetHotelDeal, hotelDeals, isLoadingHotelDeal} = props;
 
   useEffect(() => {
     const {onGetHotelDeal} = props;
@@ -30,6 +33,8 @@ const ExampleCoreContainer = props => {
   return render({
     // --- state
     // --- props
+    hotelDeals,
+    isLoadingHotelDeal,
     // --- function
   });
 };

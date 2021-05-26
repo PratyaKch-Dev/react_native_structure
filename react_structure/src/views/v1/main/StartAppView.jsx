@@ -5,12 +5,11 @@ import ExampleCoreContainer from '~/modules/example/example-core/ExampleCoreCont
 
 const StartAppView = props => {
   const {Template, navigate} = props;
-  console.log('herrrrrrrrr :: ', props);
 
   return (
     <ExampleCoreContainer
       {...props}
-      render={({}) => {
+      render={({hotelDeals, isLoadingHotelDeal}) => {
         return (
           <Template.TemplateFull
             title={'หน้าแรก'}
