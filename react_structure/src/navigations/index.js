@@ -19,6 +19,7 @@ import Toast from 'react-native-toast-message';
 import configStore from '~/configs/stores/';
 import configSagas from '~/modules/sagas';
 import {interceptors} from '~/configs/axios';
+import {setLanguage} from '~/utils/lang';
 
 import {TemplateWithTopbar, TemplateFull, colors} from '~/templates/v1';
 import viewList from '~/configs/router';
@@ -319,7 +320,7 @@ Navigation.events().registerAppLaunchedListener(async () => {
   await interceptors(store);
   // await notifications(store)
   // await quickAction(store)
-  // await setLanguage('th')
+  await setLanguage('th');
   await startApp();
 });
 

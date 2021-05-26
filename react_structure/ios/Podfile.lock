@@ -288,6 +288,8 @@ PODS:
     - React
   - RNGestureHandler (1.10.3):
     - React-Core
+  - RNLocalize (2.1.0):
+    - React-Core
   - RNQuickAction (0.3.13):
     - React
   - RNVectorIcons (8.1.0):
@@ -331,6 +333,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNExitApp (from `../node_modules/react-native-exit-app`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNQuickAction (from `../node_modules/react-native-quick-actions`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -408,6 +411,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-exit-app"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNQuickAction:
     :path: "../node_modules/react-native-quick-actions"
   RNVectorIcons:
@@ -451,6 +456,7 @@ SPEC CHECKSUMS:
   RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
   RNExitApp: c4e052df2568b43bec8a37c7cd61194d4cfee2c3
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
+  RNLocalize: 7e199e96411dce0611e07e0496b049afa882c31d
   RNQuickAction: 6d404a869dc872cde841ad3147416a670d13fa93
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   Yoga: a7de31c64fe738607e7a3803e3f591a4b1df7393

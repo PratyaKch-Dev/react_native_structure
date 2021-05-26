@@ -2,9 +2,12 @@ import React, {Fragment, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {colors, fonts} from '~/templates/v1';
 import ExampleCoreContainer from '~/modules/example/example-core/ExampleCoreContainer';
+import I18n from '~/utils/lang';
 
 const StartAppView = props => {
   const {Template, navigate} = props;
+
+  console.log('currentLocale :: ', I18n.currentLocale());
 
   return (
     <ExampleCoreContainer
