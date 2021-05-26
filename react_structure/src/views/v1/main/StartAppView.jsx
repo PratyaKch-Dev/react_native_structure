@@ -1,25 +1,33 @@
 import React, {Fragment, useEffect} from 'react';
 import styled from 'styled-components/native';
 import {colors, fonts} from '~/templates/v1';
+import ExampleCoreContainer from '~/modules/example/example-core/ExampleCoreContainer';
 
 const StartAppView = props => {
   const {Template, navigate} = props;
   console.log('herrrrrrrrr :: ', props);
 
   return (
-    <Template.TemplateFull
-      title={'หน้าแรก'}
-      useBack={false}
-      useAndroidBack={true}>
-      <StartAppViewWrapper>
-        <ButtonWrapper
-          onPress={() => {
-            navigate.to('DetailAppView');
-          }}>
-          <ButtonText>Click</ButtonText>
-        </ButtonWrapper>
-      </StartAppViewWrapper>
-    </Template.TemplateFull>
+    <ExampleCoreContainer
+      {...props}
+      render={({}) => {
+        return (
+          <Template.TemplateFull
+            title={'หน้าแรก'}
+            useBack={false}
+            useAndroidBack={true}>
+            <StartAppViewWrapper>
+              <ButtonWrapper
+                onPress={() => {
+                  navigate.to('DetailAppView');
+                }}>
+                <ButtonText>Click</ButtonText>
+              </ButtonWrapper>
+            </StartAppViewWrapper>
+          </Template.TemplateFull>
+        );
+      }}
+    />
   );
 };
 

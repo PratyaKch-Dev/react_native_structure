@@ -3,6 +3,9 @@ import types from './exampleCoreActionTypes';
 export const initialState = {
   exampleValue: undefined,
   isLoadingValue: false,
+
+  hotelDeals: [],
+  isLoadingHotelDeal: false,
 };
 
 export default (state = initialState, action) => {
@@ -26,6 +29,26 @@ export default (state = initialState, action) => {
         isLoadingValue: false,
       };
     }
+    case types.GET_HOTEL_DEALS: {
+      return {
+        ...state,
+        isLoadingHotelDeal: true,
+      };
+    }
+    case types.GET_HOTEL_DEALS_SUCCESS: {
+      return {
+        ...state,
+        hotelDeals: action.payload.hotelDeals,
+        isLoadingHotelDeal: false,
+      };
+    }
+    case types.GET_HOTEL_DEALS_FAIL: {
+      return {
+        ...state,
+        isLoadingHotelDeal: false,
+      };
+    }
+
     default:
       return state;
   }

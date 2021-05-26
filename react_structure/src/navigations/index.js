@@ -18,6 +18,7 @@ import Toast from 'react-native-toast-message';
 // ---
 import configStore from '~/configs/stores/';
 import configSagas from '~/modules/sagas';
+import {interceptors} from '~/configs/axios';
 
 import {TemplateWithTopbar, TemplateFull, colors} from '~/templates/v1';
 import viewList from '~/configs/router';
@@ -315,7 +316,7 @@ const renderRegisterComponent = () => {
 Navigation.events().registerAppLaunchedListener(async () => {
   SplashScreen.hide();
   // await migrateStore(store)
-  // await interceptors(store)
+  await interceptors(store);
   // await notifications(store)
   // await quickAction(store)
   // await setLanguage('th')

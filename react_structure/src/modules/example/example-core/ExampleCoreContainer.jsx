@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
 import PropTypes from 'prop-types';
@@ -10,10 +11,21 @@ import exampleCoreActions from './exampleCoreActions';
 // ---
 const mapStateToProp = createSelector({});
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      onGetHotelDeal: exampleCoreActions.getHotelDeals,
+    },
+    dispatch,
+  );
 
 const ExampleCoreContainer = props => {
-  const {render} = props;
+  const {render, onGetHotelDeal} = props;
+
+  useEffect(() => {
+    const {onGetHotelDeal} = props;
+    onGetHotelDeal();
+  }, []);
 
   return render({
     // --- state
