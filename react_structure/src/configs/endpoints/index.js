@@ -2,6 +2,7 @@ import {Platform} from 'react-native';
 // --
 import apis from './apis';
 import environment from './env.json';
+import restApi from '~/configs/endpoints/restApi';
 
 // change staging to 'DEVELOPMENT' for use on DEV MODE
 const envList = {
@@ -23,6 +24,7 @@ const getEnv = () => {
     platform: environment.platform,
     config: environment.ENV[staging],
     apis: apis(staging),
+    restApi: restApi,
   };
 };
 

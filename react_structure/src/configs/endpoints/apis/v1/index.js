@@ -1,6 +1,14 @@
-import urljoin from 'url-join';
+import createApi from '~/utils/automations/createApi';
 // ---
-export default endpoint => ({
-  // HOTEL
-  HOTEL_DEALS: urljoin(endpoint, 'api', 'deals', 'hotelDeals'),
-});
+
+import authentication from './authentication';
+
+// ---
+export default endpoint => {
+  const apis = [authentication];
+  return createApi({
+    apis,
+    endpoint,
+    version: 'v2',
+  });
+};

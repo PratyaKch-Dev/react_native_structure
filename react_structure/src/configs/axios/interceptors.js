@@ -5,7 +5,6 @@ import axios from 'axios';
 const interceptors = store => {
   axios.interceptors.request.use(
     function (config) {
-      // console.log('config', config)
       return config;
     },
     function (error) {

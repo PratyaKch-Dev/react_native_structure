@@ -4,7 +4,6 @@ import {colors, fonts} from '~/templates/v1';
 
 const DetailAppView = props => {
   const {Template, navigate} = props;
-  console.log('herrrrrrrrr :: ', Template);
 
   return (
     <Template.TemplateWithTopbar

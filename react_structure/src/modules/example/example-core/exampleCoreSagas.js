@@ -24,8 +24,7 @@ export function* getData({restApi}, action) {
 
 export function* getHotelDeals({restApi}, action) {
   try {
-    const access_token =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnb2FwaS50cmF2ZWxpZ28uY29tIiwiaWQiOiIzIiwiaWF0IjoxNjIyMDQwNTkxLCJleHAiOjE2MjIwNDc3OTF9.we76aruZ6DBVh6lPEc3ZQE7ZTz47LG5_OYvTQwM75Mk';
+    const access_token = '';
 
     if (access_token) {
       const Authorization = `Bearer ${access_token}`;
@@ -37,8 +36,6 @@ export function* getHotelDeals({restApi}, action) {
           page: '1',
         },
       });
-
-      console.log('hotelDealsData ::', hotelDealsData);
 
       if (hotelDealsData) {
         yield put(
